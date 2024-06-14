@@ -4,6 +4,14 @@ body {
   color: #232323;
 }
 
+.color {
+  color: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+.color:hover {
+  color: #b23301;
+}
+
 nav li:last-child a {
   background: #FE5F1E;
 }
@@ -35,4 +43,24 @@ section.hero {
   background: #FE5F1E;
   border-color: #fff;
   color: #fff;
+}
+
+.btn-primary {
+  background: #FE5F1E;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  background: #b23301;
+}
+
+section.cart {
+  background: #F8F8F8;
+}
+section.cart .amount {
+  color: #FE5F1E;
+}
+
+section.login {
+  background: #F8F8F8;
+  min-height: calc(100vh - 86px);
 }
