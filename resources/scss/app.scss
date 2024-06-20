@@ -1,4 +1,6 @@
 @import './variables';
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 
 body{
     font-family:Arial, Helvetica, sans-serif;
@@ -65,4 +67,15 @@ section.cart{
 section.login{
     background: $secondary;
     min-height: calc(100vh - 86px);
+}
+
+.noty_theme__mint{
+    border-radius: 50px !important;
+    padding-left: 8px !important;
+    background: $primary !important;
+    color: $pure !important;
+}
+.noty_theme__mint.error {
+    background: $primary-hover !important;
+    color: $pure !important; /* Adjust text color if necessary for better contrast */
 }
