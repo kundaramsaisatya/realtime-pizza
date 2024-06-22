@@ -316,3 +316,7 @@ section.login {
   background: #b23301 !important;
   color: #fff !important; /* Adjust text color if necessary for better contrast */
 }
+
+a.link {
+  color: #FE5F1E;
+}

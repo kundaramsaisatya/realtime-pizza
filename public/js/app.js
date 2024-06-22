@@ -12,7 +12,7 @@ var Noty = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 var addToCart = document.querySelectorAll('.add-to-cart');
 var cartCounter = document.querySelector('#cartCounter');
 function updateCart(pizza) {
-  axios.post('/updata-cart', pizza).then(function (res) {
+  axios.post('/update-cart', pizza).then(function (res) {
     cartCounter.innerHTML = res.data.totalQty;
     new Noty({
       // type:'success',

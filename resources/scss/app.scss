@@ -79,3 +79,7 @@ section.login{
     background: $primary-hover !important;
     color: $pure !important; /* Adjust text color if necessary for better contrast */
 }
+
+a.link{
+    color: $primary;
+}
