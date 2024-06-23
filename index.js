@@ -29,7 +29,8 @@ app.use(session({
     resave: false,
     store: mongoStore,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
+    cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
+    // cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
 }));
 
 // Passport config
@@ -61,7 +62,9 @@ app.use(express.static('public'));
 app.set('views', path.resolve('./resources/views'));
 app.set('view engine', 'ejs');
 
+
 // Routes
 require('./routes/web')(app);
+
 
 app.listen(PORT, () => console.log(`Server started on: ${PORT}`));

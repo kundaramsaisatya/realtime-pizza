@@ -8,6 +8,11 @@
 </head>
 <body>
     <%- include('./partials/navbar') %>
+    <% if (success_msg.length>0) { %>
+        <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3" role="alert">
+            <p> <%= success_msg %></p>
+        </div>
+    <% } %>
     <section class="hero py-18">
         <div class="container mx-auto flex items-center justify-between px-16 py-10">
             <div class="w-1/2">

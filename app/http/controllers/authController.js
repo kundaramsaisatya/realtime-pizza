@@ -4,6 +4,9 @@ const passport = require('passport')
 
 
 function authController() {
+    const _getRedirectUrl = (req)=>{
+        return req.user.role === 'admin' ? '/admin/orders' : '/customers/orders'
+    }
     return {
         login(req, res) {
             res.render('auth/login');
@@ -27,9 +30,8 @@ function authController() {
                         req.flash('error',info.message)
                         return next(err)
                     }
-
-                    return res.redirect('/')
-
+                    req.flash('success','Successfully Logged In')
+                    return res.redirect(_getRedirectUrl(req))
                 })
 
             })(req,res,next)
@@ -81,7 +83,7 @@ function authController() {
                         return res.redirect('/login');
                     }
                     req.flash('success', 'Registration successful and you are logged in!');
-                    return res.redirect('/');
+                    return res.redirect('/')
                 });
             } catch (err) {
                 console.error("Error during registration:", err);
