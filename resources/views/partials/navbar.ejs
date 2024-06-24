@@ -4,10 +4,19 @@
     </div>
     <div>
         <ul class="flex items-center">
-            <li class="ml-6"><a href="/">Menu</a></li>
-            <li class="ml-6"><a href="/">Offers</a></li>
-
+            <% if (user && user.role === 'admin') { %>
+                <li class="ml-6"><a href="/">Add Menu</a></li>
+            <% } else { %>
+                <li class="ml-6"><a href="/">Menu</a></li>
+            <% } %>
+            
+            
             <% if (user) { %>
+                <% if (user && user.role === 'admin') { %>
+                    <li class="ml-6"><a href="/admin/orders">Orders</a></li>
+                <% } else { %>
+                    <li class="ml-6"><a href="/customers/orders">Orders</a></li>
+                <% } %>
                 <li class="ml-6">
                         <a class="dropdown-toggle" href="/logout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <%= user.name %>

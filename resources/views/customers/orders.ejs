@@ -20,6 +20,7 @@
         <table class="w-full table-auto bg-white">
             <thead>
                 <th class="px-4 py-2 text-left">Orders</th>
+                <th class="px-4 py-2 text-left">Items</th>
                 <th class="px-4 py-2 text-left">Phone</th>
                 <th class="px-4 py-2 text-left">Address</th>
                 <th class="px-4 py-2 text-left">Time</th>
@@ -29,7 +30,14 @@
                  <% orders.forEach(order => { %>
                     <tr>
                         <td class="border px-4 py-2">
-                            <a class="link" href="/"><%= order._id %></a>
+                            <a class="link" href="/customers/orders/<%= order._id  %>"><%= order._id%></a>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <ul>
+                                <% for (let key in order.items) { %>
+                                    <li><%= order.items[key].item.name %> - <%= order.items[key].qty %> pcs</li>
+                                <% } %>
+                            </ul>
                         </td>
                         <td class="border px-4 py-2">
                             <%= order.phone %>

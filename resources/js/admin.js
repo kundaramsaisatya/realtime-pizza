@@ -31,7 +31,6 @@ export function initAdmin(socket) {
     function generateMarkup(orders) {
         return orders.map(order => {
             const customerName = order.customerId ? order.customerId.name : 'Unknown';
-
             return `
                 <tr>
                 <td class="border px-4 py-2 text-green-900">
