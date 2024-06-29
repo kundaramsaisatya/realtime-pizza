@@ -4,6 +4,8 @@ function homeController() {
         async index(req,res){
             const pizzas = await Menu.find()
             res.render('home',{pizzas: pizzas});
+           // res.render('./customers/receipt',{pizzas: pizzas});
+
             // console.log("Pizzas: ",pizzas);
         }
     }

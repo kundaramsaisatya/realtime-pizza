@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Orders</title>
+    <%- include('../partials/head') %>
+</head>
+<body>
+        <div class="ticket-container">
+            <div class="ticket">
+                <div class="header">
+                    <h1>e-Receipt</h1>
+                    <p>Order Number:  <span class="font-bold"><%= order._id %></span> </p>
+                    <p>Order Time: <span class="font-bold"> <%= moment(order.createdAt).format('DD/MM/YYYY hh:mm A') %> </span> 
+                    </p>
+                    <p>Customer Name: <span class="font-bold"> <%= user.name %> </span> </p>
+                </div>
+    
+                <div class="instructions">
+                    <p><strong>Please Note:</strong></p>
+                    <p>Order should be consumed within 1-2 hours</p>
+
+                </div>
+    
+                <table class="w-full table-auto bg-white">
+                    <thead>
+                        <th class="px-4 py-2 text-left">Items</th>
+                        <th class="px-4 py-2 text-left">Quantity</th>
+                        <th class="px-4 py-2 text-left">Price</th>
+                        <th class="px-4 py-2 text-left">Phone</th>
+                        <th class="px-4 py-2 text-left">Address</th>
+                    </thead>
+                    <tbody>
+                        <% if (orders._id == orders._id) { %>
+                         <% orders.forEach(order => { %>
+                            <tr>
+                                
+                                <td class="border px-4 py-2">
+                                    <ul>
+                                        <% for (let key in order.items) { %>
+                                            <li><%= order.items[key].item.name %></li>
+                                        <% } %>
+                                    </ul>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <ul>
+                                        <% for (let key in order.items) { %>
+                                            <li><%= order.items[key].qty %> pcs</li>
+                                           
+                                        <% } %>
+                                    </ul>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <% for (let key in order.items) { %>
+                                        <ol>
+                                            <li> ₹<%= order.items[key].item.price * order.items[key].qty %></li>
+                                        </ol>
+                                    <% } %>
+                                </td>
+                                
+                                <td class="border px-4 py-2">
+                                    <%= order.phone %>
+                                </td>
+                                <td class="border px-4 py-2">
+                                    <%= order.address %>
+                                </td>
+                            </tr>
+                         <% }) %>
+                        
+                        
+                        <% } else { %>
+                            <tr>
+                                <td class="p-4"><span>No orders found!</span></td>
+                            </tr>
+                            <% } 
+                        %>
+                    </tbody>
+                </table>
+
+                <div class="total">
+                    <% let totalPrice = 0; %>
+                    <% for (let key in order.items) { %>
+                        <% totalPrice += order.items[key].item.price * order.items[key].qty; %>
+                    <% } %>
+                    <p>Total Price: ₹<%= totalPrice %></p>
+                </div>
+                <div class="total">
+                    <p>Mode: <%= order.paymentType %></p>
+                </div>
+                
+    
+                <div class="footer">
+                    <p>Thank you for your order!</p>
+                    <p>&copy; 2024 Pizza Mania. All rights reserved.</p>
+                </div>
+                <td class="border px-4 py-2">
+                    <div class="flex justify-between">
+
+                        <button class="btn-primary rounded-full px-6 py-2 text-white font-bold mt-4" onclick="printPage()">
+                            <i class="las la-print">Print</i>
+                        </button>
+                        <button class="btn-primary rounded-full px-6 py-2 text-white font-bold mt-4">
+                            <i class="las la-chevron-circle-left"><a href="/customers/orders">Back</a></i>
+                        </button>
+                    </div>
+                    
+                    
+                    
+
+               </td>
+            </div>
+        </div>
+        
+
+    <%- include('../partials/script') %>
+
+    
+    <script>
+    function printPage() {
+        window.print(); // This will trigger the print dialog for the current page
+        
+    }
+    </script>
+    
+    
+</body>
+</html>
+<!-- http://localhost:3300/customers/orders/receipt/667a51756e228bc1fa7d7ae8 -->

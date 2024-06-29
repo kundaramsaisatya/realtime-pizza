@@ -266,10 +266,6 @@ nav li a:hover {
   color: #FE5F1E;
 }
 
-section.hero {
-  background: #F8F8F8;
-}
-
 .size {
   background: #F8F8F8;
 }
@@ -426,4 +422,57 @@ section.status {
   float: right;
   font-size: 14px;
   margin-top: 8px;
+}
+
+.ticket-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.ticket {
+  background-color: #fff;
+  border: 2px dashed #ff5733;
+  padding: 20px;
+  width: 800px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.ticket .header, .ticket .footer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.ticket .header h1 {
+  font-size: 30px;
+  color: #ff5733;
+  margin: 0;
+}
+.ticket .instructions {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #555;
+}
+.ticket table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.ticket table thead th {
+  background-color: #ff5733;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+}
+.ticket table tbody tr td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ff5733;
+}
+.ticket .total {
+  text-align: right;
+  font-weight: bold;
+  color: #ff5733;
 }

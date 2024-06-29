@@ -30,6 +30,7 @@ function initRoutes(app) {
 
     //single order
     app.get('/customers/orders/:id',auth,orderController().show)
+    app.get('/customers/orders/receipt/:id',auth,orderController().receipt)
 
     //Admin routes
     app.get('/admin/orders',admin,adminOrderController().index)
